@@ -34,7 +34,8 @@
       svg.setAttribute('aria-hidden', 'true')
       svg.setAttribute('class', 'copy-icon')
       var use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-      use.setAttribute('href', window.uiRootPath + '/img/octicons-16.svg#icon-clippy')
+      var copyToClipboardSvg = document.getElementById('copy-to-clipboard-svg');
+      use.setAttribute('href', copyToClipboardSvg.src + '#icon-clippy')
       svg.appendChild(use)
       copy.appendChild(svg)
       ;(toast = document.createElement('span')).className = 'copy-toast'
