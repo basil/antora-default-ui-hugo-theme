@@ -1,0 +1,16 @@
+baseurl = "https://example.com/"
+languageCode = "en"
+
+title = "Example Site"
+theme = "antora-default-ui-hugo-theme"
+
+copyright = "Copyright &copy; 2020 First Last. All rights reserved."
+paginate = 3
+
+[Params]
+  editThisPage = "https://github.com/basil/antora-default-ui-hugo-theme/edit/master/exampleSite/content"
+
+[markup.asciidocext]
+  [markup.asciidocext.attributes]
+    "icons" = "font"
+    "source-highlighter" = "highlightjs"
