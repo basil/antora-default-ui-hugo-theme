@@ -14,5 +14,6 @@
 {{ $footer := resources.Get "css/footer.css" }}
 {{ $highlight := resources.Get "css/highlight.css" }}
 {{ $print := resources.Get "css/print.css" }}
-{{ $site := slice $vars $base $body $nav $main $toolbar $breadcrumbs $page_versions $toc $doc $pagination $pagination_list $header $footer $highlight $print | resources.Concat "css/site.css" | resources.Minify | resources.Fingerprint }}
+{{ $custom := resources.Get "css/custom.css" }}
+{{ $site := slice $vars $base $body $nav $main $toolbar $breadcrumbs $page_versions $toc $doc $pagination $pagination_list $header $footer $highlight $print $custom | resources.Concat "css/site.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" type="text/css" href="{{ $site.RelPermalink }}">
