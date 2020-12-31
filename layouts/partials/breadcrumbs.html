@@ -1,0 +1,13 @@
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    {{ template "breadcrumb" (dict "p1" . "p2" . "siteTitle" .Site.Title) }}
+  </ul>
+</nav>
+{{ define "breadcrumb" }}
+  {{ if .p1.Parent }}
+    {{ template "breadcrumb" (dict "p1" .p1.Parent "p2" .p2 "siteTitle" .siteTitle) }}
+  {{ else if not .p1.IsHome }}
+    {{ template "breadcrumb" (dict "p1" .p1.Site.Home "p2" .p2 "siteTitle" .siteTitle) }}
+  {{ end }}
+  <li>{{ if ne .p1 .p2 }}<a href="{{ .p1.RelPermalink }}">{{ end }}{{ if .p1.IsHome }}{{ .siteTitle | markdownify }}{{ else }}{{ .p1.Title | markdownify }}{{ end }}{{ if ne .p1 .p2 }}</a>{{ end }}</li>
+{{ end }}

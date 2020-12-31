@@ -1,0 +1,10 @@
+{{ if or (.PrevInSection) (.NextInSection) }}
+  <nav class="pagination">
+    {{ with .PrevInSection }}
+      <span class="prev"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></span>
+    {{ end }}
+    {{ with .NextInSection }}
+      <span class="next"><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></span>
+    {{ end }}
+  </nav>
+{{ end }}

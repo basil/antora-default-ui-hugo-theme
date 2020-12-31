@@ -1,0 +1,22 @@
+{{ $contents := (union .sections .pages) }}
+{{ if gt (len $contents) 0 }}
+<ul class="nav-list">
+  {{ $scratch := newScratch }}
+  {{ $scratch.Set "context" .context }}
+  {{ $scratch.Set "current" .current }}
+  {{ $scratch.Set "level" .level }}
+  {{ range $contents }}
+    {{ if eq .Parent ($scratch.Get "current") }}
+      <li class="nav-item{{ if eq . ($scratch.Get "context") }} is-current-page{{ end }}" data-depth="{{ $scratch.Get "level" }}">
+        {{ if .IsSection }}
+          <button class="nav-item-toggle"></button>
+        {{ end }}
+        <a class="nav-link" href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+        {{ if .IsSection }}
+          {{ partial "nav-tree" (dict "context" ($scratch.Get "context") "current" . "sections" .Sections "pages" .Pages "level" (add ($scratch.Get "level") 1)) }}
+        {{ end }}
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
+{{ end }}

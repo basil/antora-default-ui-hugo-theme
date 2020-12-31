@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <article class="doc">
+    <h1 class="page">{{ .Title | markdownify }}</h1>
+    {{ .Content }}
+    {{ range .Paginator.Pages }}
+      {{ partial "post-preview.html" . }}
+    {{ end }}
+    <div class="pagination-centered">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </article>
+{{ end }}

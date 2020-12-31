@@ -1,0 +1,26 @@
+<link rel="canonical" href="{{ .RelPermalink }}">
+{{ with .PrevInSection }}
+  <link rel="prev" href="{{ .RelPermalink }}">
+{{ end }}
+{{ with .NextInSection }}
+  <link rel="next" href="{{ .RelPermalink }}">
+{{ end }}
+{{ range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .RelPermalink | safeURL }}">
+{{ end }}
+{{ if .IsHome }}
+  {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+{{ else }}
+  {{ with .Params.description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+{{ end }}
+{{ with .Site.Author.name }}
+  <meta name="author" content="{{ . }}"/>
+{{ end }}
+{{ if isset .Params "tags" }}
+  <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+{{ end }}
+{{ hugo.Generator }}

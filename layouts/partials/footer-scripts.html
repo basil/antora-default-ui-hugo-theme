@@ -1,0 +1,18 @@
+{{ $01_nav := resources.Get "js/01-nav.js" }}
+{{ $02_on_this_page := resources.Get "js/02-on-this-page.js" }}
+{{ $03_fragment_jumper := resources.Get "js/03-fragment-jumper.js" }}
+{{ $04_page_versions := resources.Get "js/04-page-versions.js" }}
+{{ $05_mobile_navbar := resources.Get "js/05-mobile-navbar.js" }}
+{{ $06_copy_to_clipboard := resources.Get "js/06-copy-to-clipboard.js" }}
+{{ $site := slice $01_nav $02_on_this_page $03_fragment_jumper $04_page_versions $05_mobile_navbar $06_copy_to_clipboard | resources.Concat "js/site.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $site.RelPermalink }}"></script>
+{{ $highlight := resources.Get "js/vendor/highlight.pack.js" | resources.Fingerprint }}
+<script src="{{ $highlight.RelPermalink }}"></script>
+<script type="text/javascript">
+;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
+  hljs.highlightBlock(node)
+})
+</script>
+{{ if not .Site.IsServer }}
+  {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}

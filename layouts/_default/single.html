@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <article class="doc">
+    <h1 class="page">{{ .Title | markdownify }}</h1>
+    {{ partial "post-meta.html" . }}
+    {{ .Content }}
+    {{ partial "pagination" . }}
+  </article>
+{{ end }}

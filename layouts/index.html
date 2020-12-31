@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <article class="doc">
+    {{ .Content }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
+      {{ partial "post-preview.html" . }}
+    {{ end }}
+    <div class="pagination-centered">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </article>
+{{ end }}

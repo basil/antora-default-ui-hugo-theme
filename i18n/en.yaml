@@ -1,0 +1,29 @@
+# Content
+- id: contents
+  translation: "Contents"
+- id: continueReading
+  translation: "Continue reading &ldquo;{{ . }}&rdquo; &hellip;"
+- id: dateFormat
+  translation: "January 2, 2006"
+- id: editThisPage
+  translation: "Edit this page"
+- id: in
+  translation: "in"
+- id: lastModified
+  translation: "(Last modified on {{ . }})"
+- id: postedOnDate
+  translation: "Posted on {{ . }}"
+- id: taggedWith
+  translation: "Tagged with"
+
+
+# 404 page
+- id: pageNotFoundLink
+  translation: 'The page you&rsquo;re looking for does not exist. It may have been moved. You can return to the <a href="{{ .RelPermalink }}">home page</a> or follow one of the links in the navigation to the left.'
+- id: pageNotFoundAction
+  translation: 'If you arrived on this page by clicking on a link, please notify the owner of the site that the link is broken. If you typed the URL of this page manually, please check that you entered the address correctly.'
+
+
+# Footer
+- id: poweredBy
+  translation: 'This page was built with <a href="https://gohugo.io/">Hugo {{ . }}</a> using the <a href="https://github.com/basil/antora-default-ui-hugo-theme">Hugo port</a> of the <a href="https://gitlab.com/antora/antora-ui-default">Antora default UI</a>. The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License, Version 2.0</a> (MPL-2.0).'

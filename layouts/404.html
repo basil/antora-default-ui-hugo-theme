@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <article class="doc">
+    <h1 class="page">{{ .Title | markdownify }}</h1>
+    <div class="paragraph">
+      <p>{{ .Site.Home | i18n "pageNotFoundLink" | safeHTML }}</p>
+    </div>
+    <div class="paragraph">
+      <p>{{ i18n "pageNotFoundAction" | safeHTML }}</p>
+    </div>
+  </article>
+{{ end }}

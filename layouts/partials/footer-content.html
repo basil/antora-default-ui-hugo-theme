@@ -1,0 +1,6 @@
+<footer class="footer">
+  {{ with .Site.Copyright }}
+    <p>{{ . | safeHTML }}</p>
+  {{ end }}
+  <p>{{ .Site.Hugo.Version | i18n "poweredBy" | safeHTML }}</p>
+</footer>

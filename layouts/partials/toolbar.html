@@ -1,0 +1,16 @@
+<div class="toolbar" role="navigation">
+  {{ partial "nav-toggle" . }}
+  <a href="{{ .Site.Home.RelPermalink }}" class="home-link{{ if .IsHome }} is-current{{ end }}"></a>
+  {{ partial "breadcrumbs" . }}
+  {{ $scratch := newScratch }}
+  {{ with .File }}
+    {{ with .Path }}
+      {{ $scratch.Set "filePath" . }}
+    {{ end }}
+  {{ end }}
+  {{ with .Site.Params.editThisPage }}
+    {{ if $scratch.Get "filePath" }}
+      <div class="edit-this-page"><a href="{{ . }}{{ $scratch.Get "filePath" }}">{{ i18n "editThisPage" }}</a></div>
+    {{ end }}
+  {{ end }}
+</div>

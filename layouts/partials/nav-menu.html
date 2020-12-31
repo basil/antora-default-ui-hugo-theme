@@ -1,0 +1,6 @@
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title | markdownify }}</a></h3>
+    {{ partial "nav-tree" (dict "context" . "current" .Site.Home "sections" .Site.Sections "pages" .Site.RegularPages "level" 0) }}
+  </nav>
+</div>

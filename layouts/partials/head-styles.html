@@ -1,0 +1,18 @@
+{{ $vars := resources.Get "css/vars.css" }}
+{{ $base := resources.Get "css/base.css" }}
+{{ $body := resources.Get "css/body.css" }}
+{{ $nav := resources.Get "css/nav.css" }}
+{{ $main := resources.Get "css/main.css" }}
+{{ $toolbar := resources.Get "css/toolbar.css" }}
+{{ $breadcrumbs := resources.Get "css/breadcrumbs.css" }}
+{{ $page_versions := resources.Get "css/page-versions.css" }}
+{{ $toc := resources.Get "css/toc.css" }}
+{{ $doc := resources.Get "css/doc.css" }}
+{{ $pagination := resources.Get "css/pagination.css" }}
+{{ $pagination_list := resources.Get "css/pagination-list.css" }}
+{{ $header := resources.Get "css/header.css" }}
+{{ $footer := resources.Get "css/footer.css" }}
+{{ $highlight := resources.Get "css/highlight.css" }}
+{{ $print := resources.Get "css/print.css" }}
+{{ $site := slice $vars $base $body $nav $main $toolbar $breadcrumbs $page_versions $toc $doc $pagination $pagination_list $header $footer $highlight $print | resources.Concat "css/site.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" type="text/css" href="{{ $site.RelPermalink }}">

@@ -1,0 +1,30 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ .Site.Home.RelPermalink }} ">{{ .Site.Title | markdownify }}</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        {{ range .Site.Menus.main }}
+          {{ if .HasChildren }}
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="#" title="{{ .Title | markdownify }}">{{ .Name }}</a>
+              <div class="navbar-dropdown">
+                {{ range .Children }}
+                    <a class="navbar-item" href="{{ .URL }}" title="{{ .Title | markdownify }}">{{ .Name }}</a>
+                {{ end }}
+              </div>
+            </div>
+          {{ else }}
+            <a class="navbar-item" href="{{ .URL }}" title="{{ .Title | markdownify }}">{{ .Name }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </nav>
+</header>

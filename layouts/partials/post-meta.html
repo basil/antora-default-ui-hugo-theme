@@ -1,0 +1,30 @@
+<div class="openblock is-before-toc">
+  <div class="title">
+    {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
+    {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
+    {{ $datestr | i18n "postedOnDate"}}
+    {{ if ne $datestr $lastmodstr }}
+      {{ $lastmodstr | i18n "lastModified"  }}
+    {{ end }}
+    {{ $taxonomy := "categories" }}
+    {{ with .Param $taxonomy }}
+        {{ i18n "in" }}
+        {{ range $index, $page := . }}
+            {{- if gt $index 0 }}, {{ end -}}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $page) -}}
+                <a href="{{ .RelPermalink }}">{{ $page }}</a>
+            {{- end }}
+        {{- end }}
+    {{ end }}
+    {{ $taxonomy := "tags" }}
+    {{ with .Param $taxonomy }}
+        &bull; {{ i18n "taggedWith" }}
+        {{ range $index, $page := . }}
+            {{- if gt $index 0 }}, {{ end -}}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $page) -}}
+                <a href="{{ .RelPermalink }}">{{ $page }}</a>
+            {{- end }}
+        {{- end }}
+    {{ end }}
+  </div>
+</div>

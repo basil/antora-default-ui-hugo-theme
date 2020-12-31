@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <article class="doc">
+    <h1 class="page">{{ .Title | markdownify | default (.Type | title) }}</h1>
+    {{ .Content }}
+    <div class="ulist">
+      <ul>
+        {{ range .Data.Terms }}
+          <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title | markdownify }}</a> ({{ .Count }})</li>
+        {{ end }}
+      </ul>
+    </div>
+  </article>
+{{ end }}
