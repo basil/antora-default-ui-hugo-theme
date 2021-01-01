@@ -1,10 +1,12 @@
 <div class="openblock is-before-toc">
   <div class="title">
-    {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
-    {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
-    {{ $datestr | i18n "postedOnDate"}}
-    {{ if ne $datestr $lastmodstr }}
-      {{ $lastmodstr | i18n "lastModified"  }}
+    {{ if .Date }}
+      {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
+      {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
+      {{ $datestr | i18n "postedOnDate"}}
+      {{ if ne $datestr $lastmodstr }}
+        {{ $lastmodstr | i18n "lastModified" }}
+      {{ end }}
     {{ end }}
     {{ $taxonomy := "categories" }}
     {{ with .Param $taxonomy }}
