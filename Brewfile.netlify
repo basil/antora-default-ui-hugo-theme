@@ -1,2 +1,1 @@
-brew "openssl@1.1", args: ["force-bottle"]
-brew "asciidoctor"
+brew "asciidoctor", args: ["ignore-dependencies"]
