@@ -4,7 +4,7 @@
 name = "Antora Default UI Hugo Theme"
 license = "MPL-2.0"
 licenselink = "https://github.com/basil/antora-default-ui-hugo-theme/blob/master/LICENSE"
-description = "A port of the Antora default UI to Hugo"
+description = "A Hugo theme based on the Antora default UI, with full support for Asciidoctor"
 homepage = "https://github.com/basil/antora-default-ui-hugo-theme"
 tags = ["blog", "AsciiDoc", "Asciidoctor", "highlight.js", "syntax highlighting"]
 features = ["blog", "AsciiDoc", "Asciidoctor", "highlight.js", "syntax highlighting"]
