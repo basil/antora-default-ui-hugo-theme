@@ -1,6 +1,8 @@
 +++
 title = "Hardware and Software Requirements"
 date = "2019-02-28"
+categories = ["Misc"]
+tags = ["AsciiDoc", "Asciidoctor"]
 +++
 :idprefix:
 :idseparator: -
