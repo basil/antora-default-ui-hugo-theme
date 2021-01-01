@@ -6,8 +6,8 @@ license = "MPL-2.0"
 licenselink = "https://github.com/basil/antora-default-ui-hugo-theme/blob/master/LICENSE"
 description = "A port of the Antora default UI to Hugo"
 homepage = "https://github.com/basil/antora-default-ui-hugo-theme"
-tags = ["AsciiDoc", "Asciidoctor"]
-features = ["AsciiDoc", "Asciidoctor"]
+tags = ["blog", "AsciiDoc", "Asciidoctor", "highlight.js", "syntax highlighting"]
+features = ["blog", "AsciiDoc", "Asciidoctor", "highlight.js", "syntax highlighting"]
 min_version = "0.41.0"
 
 [author]
