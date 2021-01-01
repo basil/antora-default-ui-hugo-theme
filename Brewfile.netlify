@@ -1,1 +1,0 @@
-brew "asciidoctor", args: ["ignore-dependencies"]
