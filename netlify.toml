@@ -8,7 +8,7 @@
   HUGO_VERSION = "0.80.0"
 
 [context.production.environment]
-  HUGO_BASEURL = "https://antora-default-ui-hugo-theme.app/"
+  HUGO_BASEURL = "https://antora-default-ui-hugo-theme.netlify.app/"
 
 [context.deploy-preview]
   command = "hugo -s exampleSite --gc --buildFuture -b $DEPLOY_PRIME_URL"
