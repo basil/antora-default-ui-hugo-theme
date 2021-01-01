@@ -1,1 +1,1 @@
-brew "asciidoctor"
+brew "asciidoctor", args: ["force-bottle"]
