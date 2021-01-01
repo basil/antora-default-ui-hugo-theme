@@ -1,1 +1,2 @@
-brew "asciidoctor", args: ["--force-bottle"]
+brew "openssl@1.1", args: ["--force-bottle"]
+brew "asciidoctor"
