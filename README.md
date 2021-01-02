@@ -45,10 +45,14 @@ For more information, consult the [Hugo documentation](https://gohugo.io/getting
 Configure the Asciidoctor attributes in your site's configuration file (`config.toml`) for use with this theme:
 
 ```toml
-[markup.asciidocext]
-  [markup.asciidocext.attributes]
-    "icons" = "font"
-    "source-highlighter" = "highlightjs"
+[markup]
+  [markup.asciidocext]
+    [markup.asciidocext.attributes]
+      "icons" = "font"
+      "source-highlighter" = "highlightjs"
+  [markup.highlight]
+    # Disable Goldmark Chroma syntax highlighter
+    codeFences = false
 ```
 
 Optionally, configure a copyright line for this theme's footer:
@@ -60,7 +64,7 @@ copyright = "Copyright &copy; 2020 First Last. All rights reserved."
 Optionally, configure a URL for use with this theme's **Edit this page** feature:
 
 ```toml
-[Params]
+[params]
   editThisPage = "https://github.com/organization/repository/edit/master/content/"
 ```
 
