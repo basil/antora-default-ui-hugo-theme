@@ -14,6 +14,6 @@
   hljs.highlightBlock(node)
 })
 </script>
-{{ if not .Site.IsServer }}
-  {{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
+{{ if not .Site.IsServer -}}
+  {{ template "_internal/google_analytics.html" . }}
+{{- end }}
