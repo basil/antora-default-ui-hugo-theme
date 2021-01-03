@@ -9,7 +9,7 @@
 {{ printf `<script src="%s" integrity="%s"></script>` $site.RelPermalink $site.Data.Integrity | safeHTML }}
 {{ $highlight := resources.Get "js/vendor/highlight.pack.js" | resources.Fingerprint }}
 {{ printf `<script src="%s" integrity="%s"></script>` $highlight.RelPermalink $highlight.Data.Integrity | safeHTML }}
-<script type="text/javascript">
+<script>
 ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
   hljs.highlightBlock(node)
 })

@@ -16,4 +16,4 @@
 {{ $print := resources.Get "css/print.css" }}
 {{ $custom := resources.Get "css/custom.css" }}
 {{ $site := slice $vars $base $body $nav $main $toolbar $breadcrumbs $page_versions $toc $doc $pagination $pagination_list $header $footer $highlight $print $custom | resources.Concat "css/site.css" | resources.Minify | resources.Fingerprint }}
-{{ printf `<link rel="stylesheet" type="text/css" href="%s" integrity="%s">` $site.RelPermalink $site.Data.Integrity | safeHTML }}
+{{ printf `<link rel="stylesheet" href="%s" integrity="%s">` $site.RelPermalink $site.Data.Integrity | safeHTML }}
