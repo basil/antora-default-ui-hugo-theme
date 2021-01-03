@@ -20,7 +20,7 @@
     {{ end }}
     {{ $taxonomy := "tags" }}
     {{ with .Param $taxonomy }}
-        &bull; {{ i18n "taggedWith" }}
+        &middot; {{ i18n "taggedWith" }}
         {{ range $index, $page := . }}
             {{- if gt $index 0 }}, {{ end -}}
             {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $page) -}}
