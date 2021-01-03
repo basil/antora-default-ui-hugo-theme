@@ -6,9 +6,9 @@
 {{ $05_mobile_navbar := resources.Get "js/05-mobile-navbar.js" }}
 {{ $06_copy_to_clipboard := resources.Get "js/06-copy-to-clipboard.js" }}
 {{ $site := slice $01_nav $02_on_this_page $03_fragment_jumper $04_page_versions $05_mobile_navbar $06_copy_to_clipboard | resources.Concat "js/site.js" | resources.Minify | resources.Fingerprint }}
-{{ printf `<script src="%s" integrity="%s"></script>` $site.RelPermalink $site.Data.Integrity | safeHTML }}
+<script src="{{ $site.RelPermalink }}" {{ $site.Data.Integrity | printf "integrity=%q" | safeHTMLAttr }}></script>
 {{ $highlight := resources.Get "js/vendor/highlight.pack.js" | resources.Fingerprint }}
-{{ printf `<script src="%s" integrity="%s"></script>` $highlight.RelPermalink $highlight.Data.Integrity | safeHTML }}
+<script src="{{ $highlight.RelPermalink }}" {{ $highlight.Data.Integrity | printf "integrity=%q" | safeHTMLAttr }}></script>
 <script>
 ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
   hljs.highlightBlock(node)
