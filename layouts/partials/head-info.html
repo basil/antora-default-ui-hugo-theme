@@ -7,19 +7,19 @@
 {{ range .AlternativeOutputFormats }}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 {{ end }}
-{{ if .IsHome }}
-  {{ with .Site.Params.description }}
-    <meta name="description" content="{{ . }}">
-  {{ end }}
-{{ else }}
-  {{ with .Params.description }}
-    <meta name="description" content="{{ . }}">
-  {{ end }}
+{{ if .Description }}
+  <meta name="description" content="{{ .Description }}">
+{{ else if .IsPage }}
+  <meta name="description" content="{{ .Summary | plainify }}">
+{{ else if .Site.Params.description }}
+  <meta name="description" content="{{ .Site.Params.description }}">
 {{ end }}
 {{ with .Site.Author.name }}
   <meta name="author" content="{{ . }}"/>
 {{ end }}
-{{ if isset .Params "tags" }}
+{{ if .Params.tags }}
   <meta name="keywords" content="{{ delimit .Params.tags "," }}">
+{{ else if .Site.Params.keywords }}
+  <meta name="keywords" content="{{ delimit .Site.Params.keywords "," }}">
 {{ end }}
 {{ hugo.Generator }}
