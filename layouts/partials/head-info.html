@@ -80,7 +80,9 @@
     <meta property="article:author" content="https://www.facebook.com/{{ . }}">
     <meta property="article:publisher" content="https://www.facebook.com/{{ . }}">
   {{ end }}
-  <meta property="article:section" content="{{ .Section }}">
+  {{ with .Section }}
+    <meta property="article:section" content="{{ . }}">
+  {{ end }}
   {{ with .Params.tags }}
     {{ range first 6 . }}
       <meta property="article:tag" content="{{ . }}">
