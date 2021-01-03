@@ -55,13 +55,24 @@ Configure the Asciidoctor attributes in your site's configuration file (`config.
     codeFences = false
 ```
 
-Optionally, configure a copyright line for this theme's footer:
+Optionally, configure a description and keywords for the home page:
 
 ```toml
-copyright = "Copyright &copy; 2020 First Last. All rights reserved."
+[params]
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  keywords = ["foo", "bar"]
 ```
 
-Optionally, configure a URL for use with this theme's **Edit this page** feature:
+Optionally, configure a copyright message and year for the footer:
+
+```toml
+copyright = "<name>. All rights reserved."
+
+[params]
+  since = <year>
+```
+
+Optionally, configure a URL for use with the **Edit this page** feature:
 
 ```toml
 [params]

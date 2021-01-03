@@ -1,6 +1,7 @@
 <footer class="footer">
-  {{ with .Site.Copyright }}
-    <p>{{ . | safeHTML }}</p>
+  {{ if or (.Site.Copyright) (.Site.Author.name) }}
+    {{ $current := now.Format "2006" }}
+    <p>&copy; {{ if and (.Site.Params.since) (ne .Site.Params.since $current) }}{{ .Site.Params.since }}&ndash;{{ end }}{{ $current }} {{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}.{{ end }}</p>
   {{ end }}
   <p>{{ .Site.Hugo.Version | i18n "poweredBy" | safeHTML }}</p>
 </footer>
