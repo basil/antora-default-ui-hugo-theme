@@ -1,1 +1,1 @@
-<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title | markdownify }} &bull; {{ end }}{{ .Site.Title | markdownify }}{{ end }}</title>
+<title>{{ if not .IsHome }}{{ .Title | markdownify }} &bull; {{ end }}{{ .Site.Title | markdownify }}</title>
