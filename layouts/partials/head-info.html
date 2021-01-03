@@ -6,7 +6,7 @@
 {{ end }}
 
 {{ range .AlternativeOutputFormats }}
-  <link rel="{{ .Rel }}" href="{{ .Permalink }}" {{ .MediaType.Type | printf "content=%q" | safeHTMLAttr }}>
+  <link rel="{{ .Rel }}" href="{{ .Permalink }}" {{ .MediaType.Type | printf "type=%q" | safeHTMLAttr }}>
 {{ end }}
 
 {{ if .Description }}
