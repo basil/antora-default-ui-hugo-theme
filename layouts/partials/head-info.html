@@ -4,9 +4,11 @@
 {{ with .NextInSection }}
   <link rel="next" href="{{ .RelPermalink }}">
 {{ end }}
+
 {{ range .AlternativeOutputFormats }}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 {{ end }}
+
 {{ if .Description }}
   <meta name="description" content="{{ .Description }}">
 {{ else if .IsPage }}
@@ -14,12 +16,102 @@
 {{ else if .Site.Params.description }}
   <meta name="description" content="{{ .Site.Params.description }}">
 {{ end }}
+
 {{ with .Site.Author.name }}
-  <meta name="author" content="{{ . }}"/>
+  <meta name="author" content="{{ . }}">
 {{ end }}
+
 {{ if .Params.tags }}
   <meta name="keywords" content="{{ delimit .Params.tags "," }}">
 {{ else if .Site.Params.keywords }}
   <meta name="keywords" content="{{ delimit .Site.Params.keywords "," }}">
 {{ end }}
+
+{{ with .Title | default .Site.Title }}
+  <meta property="og:title" content="{{ . }}">
+{{ end }}
+{{ if .Description }}
+  <meta property="og:description" content="{{ .Description }}">
+{{ else if .IsPage }}
+  <meta property="og:description" content="{{ .Summary | plainify }}">
+{{ else if .Site.Params.description }}
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+{{ end }}
+{{ with .Params.images }}
+  {{ range first 6 . }}
+    <meta property="og:image" content="{{ . | absURL }}">
+  {{ end }}
+{{ else }}
+  {{ with $.Site.Params.images }}
+    <meta property="og:image" content="{{ index . 0 | absURL }}">
+  {{ end }}
+{{ end }}
+{{ $iso8601 := "2006-01-02T15:04:05-07:00" }}
+{{ if .IsPage }}
+  {{ if not .PublishDate.IsZero }}
+    <meta property="article:published_time" {{ .PublishDate.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{ else if not .Date.IsZero }}
+    <meta property="article:published_time" {{ .Date.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{ end }}
+  {{ if not .Lastmod.IsZero }}
+    <meta property="article:modified_time" {{ .Lastmod.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{ end }}
+{{ else }}
+  {{ if not .Date.IsZero }}
+    <meta property="og:updated_time" {{ .Lastmod.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{ end }}
+{{ end }}
+{{ with .Params.audio }}
+  <meta property="og:audio" content="{{ . }}">
+{{ end }}
+{{ with .Params.locale }}
+  <meta property="og:locale" content="{{ . }}">
+{{ end }}
+{{ with .Site.Title }}
+  <meta property="og:site_name" content="{{ . }}">
+{{ end }}
+{{ with .Params.videos }}
+  {{ range . }}
+    <meta property="og:video" content="{{ . | absURL }}">
+  {{ end }}
+{{ end }}
+{{ if .IsPage }}
+  {{ with .Site.Author.facebook }}
+    <meta property="article:author" content="https://www.facebook.com/{{ . }}">
+    <meta property="article:publisher" content="https://www.facebook.com/{{ . }}">
+  {{ end }}
+  <meta property="article:section" content="{{ .Section }}">
+  {{ with .Params.tags }}
+    {{ range first 6 . }}
+      <meta property="article:tag" content="{{ . }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ with .Params.images }}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ index . 0 | absURL }}">
+{{ else }}
+  {{ with $.Site.Params.images }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ index . 0 | absURL }}">
+  {{ else }}
+    <meta name="twitter:card" content="summary">
+  {{ end }}
+{{ end }}
+{{ with .Site.Author.twitter }}
+  <meta name="twitter:creator" content="@{{ . }}">
+  <meta name="twitter:site" content="@{{ . }}">
+{{ end }}
+{{ with .Title | default .Site.Title }}
+  <meta name="twitter:title" content="{{ . | truncate 70 }}">
+{{ end }}
+{{ if .Description }}
+  <meta name="twitter:description" content="{{ .Description | truncate 200 }}">
+{{ else if .IsPage }}
+  <meta name="twitter:description" content="{{ .Summary | plainify | truncate 200 }}">
+{{ else if .Site.Params.description }}
+  <meta name="twitter:description" content="{{ .Site.Params.description | truncate 200 }}">
+{{ end }}
+
 {{ hugo.Generator }}
