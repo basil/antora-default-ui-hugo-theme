@@ -6,7 +6,7 @@
   <link rel="next" href="{{ .RelPermalink }}">
 {{ end }}
 {{ range .AlternativeOutputFormats }}
-  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .RelPermalink | safeURL }}">
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 {{ end }}
 {{ if .IsHome }}
   {{ with .Site.Params.description }}
