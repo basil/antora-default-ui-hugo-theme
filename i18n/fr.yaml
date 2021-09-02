@@ -19,14 +19,14 @@
 
 # 404 page
 - id: pageNotFoundLink
-  translation: 'Cette page n&rsquo;existe pas. Elle se trouve probablement ailleurs sur le site. Vous pouvez soit retourner à la  <a href="{{ .RelPermalink }}">page d&rsquo;acceuil</a> ou bien suivre les liens de navigation à gauche.'
+  translation: 'Cette page n&rsquo;existe pas. Elle se trouve probablement ailleurs sur le site. Vous pouvez retourner à la  <a href="{{ .RelPermalink }}">page d&rsquo;acceuil</a> ou bien suivre les liens de navigation à gauche.'
 - id: pageNotFoundAction
   translation: 'Si vous êtes arrivé ici en cliquant sur un lien, Veuillez avertir le propriétaire du site que le lien est brisé. Si vous avez tapé le lien manuellement veuillez vérifiez que vous l&rsquo;avez saisi correctement.'
 
 
 # Footer
 - id: poweredBy
-  translation: 'Cette page a été construit avec <a href="https://gohugo.io/">Hugo {{ . }}</a> et le <a href="https://github.com/basil/antora-default-ui-hugo-theme">port Hugo</a> de <a href="https://gitlab.com/antora/antora-ui-default">Antora default UI</a>. Ce code est publié sous les termes de <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License, Version 2.0</a> (MPL-2.0).'
+  translation: 'Cette page a été construite avec <a href="https://gohugo.io/">Hugo {{ . }}</a> et le <a href="https://github.com/basil/antora-default-ui-hugo-theme">port Hugo</a> de <a href="https://gitlab.com/antora/antora-ui-default">Antora default UI</a>. Ce code est publié sous les termes de <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License, Version 2.0</a> (MPL-2.0).'
 
 
 # Taxo
