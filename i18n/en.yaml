@@ -27,3 +27,8 @@
 # Footer
 - id: poweredBy
   translation: 'This page was built with <a href="https://gohugo.io/">Hugo {{ . }}</a> using the <a href="https://github.com/basil/antora-default-ui-hugo-theme">Hugo port</a> of the <a href="https://gitlab.com/antora/antora-ui-default">Antora default UI</a>. The source code for this UI is licensed under the terms of the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License, Version 2.0</a> (MPL-2.0).'
+
+
+# Taxo
+- id: categories
+  translation: catégories
