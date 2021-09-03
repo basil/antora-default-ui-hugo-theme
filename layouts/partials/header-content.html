@@ -16,12 +16,12 @@
               <a class="navbar-link" href="#" title="{{ .Title | markdownify }}">{{ .Name }}</a>
               <div class="navbar-dropdown">
                 {{ range .Children }}
-                    <a class="navbar-item" href="{{ .URL }}" title="{{ .Title | markdownify }}">{{ .Name }}</a>
+                    <a class="navbar-item" href="{{ .URL | absLangURL }}" title="{{ .Title | markdownify }}">{{ .Name }}</a>
                 {{ end }}
               </div>
             </div>
           {{ else }}
-            <a class="navbar-item" href="{{ .URL }}" title="{{ .Title | markdownify }}">{{ .Name }}</a>
+            <a class="navbar-item" href="{{ .URL | absLangURL }}" title="{{ .Title | markdownify }}">{{ .Name }}</a>
           {{ end }}
         {{ end }}
       </div>
